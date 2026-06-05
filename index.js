@@ -2,6 +2,12 @@ const express = require("express");
 const users = require("./MOCK_DATA.json");
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+// Root route
+app.get("/", (req, res) => {
+  res.json({ message: "Express API is running! 🚀", endpoints: ["/api/users", "/users", "/api/users/:id"] });
+});
+
 // Routes 
 app.get("/api/users",(req,res)=>{
     return res.json(users);
